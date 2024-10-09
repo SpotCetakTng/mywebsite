@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog | Galaxy Camera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0d0f;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu li {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menu a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6600;
+        }
+
+        /* Blog Section */
+        .blog-list {
+            padding: 100px 20px 20px;
+            text-align: center;
+        }
+
+        .blog-list h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .blog-item {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-item h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-item p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .btn-read-more {
+            padding: 10px 30px;
+            background-color: #ff6600;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn-read-more:hover {
+            background-color: #e55a00;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .blog-item {
+                padding: 15px;
+            }
+
+            .blog-item h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="home.html" class="logo">
+                <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
+            </a>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog-list">
+        <h2>Artikel Terbaru</h2>
+        
+        <!-- Blog Post 1 -->
+        <div class="blog-item">
+            <h3><a href="baca-artikel.html">Menjelajahi Dunia Fotografi dengan Galaxy Camera</a></h3>
+            <p>Fotografi adalah seni yang bisa diakses oleh semua orang. Dengan Galaxy Camera, Anda dapat menangkap setiap detil dunia di sekitar Anda...</p>
+            <a href="baca-artikel.html" class="btn-read-more">Baca Selengkapnya</a>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-item">
+            <h3><a href="baca-artikel.html">Tips Memilih Kamera untuk Pemula</a></h3>
+            <p>Jika Anda baru memulai perjalanan fotografi, memilih kamera yang tepat sangat penting. Berikut adalah beberapa tips yang bisa membantu...</p>
+            <a href="baca-artikel.html" class="btn-read-more">Baca Selengkapnya</a>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-item">
+            <h3><a href="baca-artikel.html">Panduan Memilih Kamera Mirrorless</a></h3>
+            <p>Kamera mirrorless menjadi pilihan yang populer di kalangan fotografer modern. Apa saja kelebihannya? Simak ulasan lengkapnya di artikel ini...</p>
+            <a href="baca-artikel.html" class="btn-read-more">Baca Selengkapnya</a>
+        </div>
+    </section>
+
+</body>
+</html>

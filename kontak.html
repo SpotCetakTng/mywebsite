@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kontak - Galaxy Camera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0d0f;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu li {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menu a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6600;
+        }
+
+        /* Kontak Section */
+        .kontak {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .kontak h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .kontak p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .kontak-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .kontak-form input, .kontak-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .kontak-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .kontak-form button {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .kontak-form button:hover {
+            background-color: #e55a00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0d0f;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        footer .socials a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        footer .socials a:hover {
+            color: #ff6600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="home.html" class="logo">
+                <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
+            </a>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="kontak">
+        <h2>Hubungi Kami</h2>
+        <p>Jika Anda memiliki pertanyaan atau ingin memberikan feedback, silakan isi formulir di bawah ini. Kami akan segera merespons pesan Anda.</p>
+
+        <!-- Kontak Form -->
+        <div class="kontak-form">
+            <form action="submit_form.php" method="POST">
+                <input type="text" name="nama" placeholder="Nama Anda" required>
+                <input type="email" name="email" placeholder="Email Anda" required>
+                <input type="text" name="subjek" placeholder="Subjek" required>
+                <textarea name="pesan" placeholder="Pesan Anda" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Galaxy Camera | All Rights Reserved</p>
+        <div class="socials">
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+            <a href="https://twitter.com">Twitter</a>
+        </div>
+    </footer>
+
+</body>
+</html>

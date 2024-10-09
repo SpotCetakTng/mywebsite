@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout - Galaxy Camera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0d0f;
+            color: #fff;
+        }
+
+        .container {
+            padding: 50px 20px;
+        }
+
+        .checkout, .thank-you {
+            text-align: center;
+        }
+
+        .checkout h2, .thank-you h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .checkout .form-group {
+            margin: 15px 0;
+        }
+
+        .checkout input {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background-color: #ff6600;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e55a00;
+        }
+
+        .order-summary {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .order-summary p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Checkout Section -->
+    <section class="checkout">
+        <div class="container">
+            <h2>Checkout</h2>
+            <div class="order-summary">
+                <p><strong>Produk:</strong> <span id="produk-name">Kamera DSLR Galaxy X1000</span></p>
+                <p><strong>Harga:</strong> <span id="produk-harga">Rp 5.000.000</span></p>
+            </div>
+
+            <form action="?" method="GET" id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Alamat Pengiriman</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+
+                <input type="hidden" id="produk" name="produk" value="Kamera DSLR Galaxy X1000">
+                <input type="hidden" id="harga" name="harga" value="5000000">
+
+                <button type="submit" class="btn">Konfirmasi Pembelian</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Thank You Section (hidden by default) -->
+    <section class="thank-you" style="display:none;">
+        <div class="container">
+            <h2>Terima Kasih!</h2>
+            <p>Pemesanan Anda telah berhasil diproses.</p>
+            <div class="order-summary">
+                <p><strong>Produk:</strong> <span id="produk-name-2"></span></p>
+                <p><strong>Harga:</strong> <span id="produk-harga-2"></span></p>
+                <p><strong>Nama:</strong> <span id="user-name"></span></p>
+                <p><strong>Alamat Pengiriman:</strong> <span id="user-address"></span></p>
+                <p><strong>Nomor Telepon:</strong> <span id="user-phone"></span></p>
+            </div>
+
+            <a href="home.html" class="btn">Kembali ke Halaman Utama</a>
+        </div>
+    </section>
+
+    <script>
+        // Menangani pengiriman form
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Ambil data dari form
+            const produkName = document.getElementById('produk').value;
+            const produkHarga = document.getElementById('harga').value;
+            const userName = document.getElementById('name').value;
+            const userAddress = document.getElementById('address').value;
+            const userPhone = document.getElementById('phone').value;
+
+            // Simpan data ke URL (query string)
+            const urlParams = new URLSearchParams();
+            urlParams.set('produk', produkName);
+            urlParams.set('harga', produkHarga);
+            urlParams.set('name', userName);
+            urlParams.set('address', userAddress);
+            urlParams.set('phone', userPhone);
+
+            // Alihkan ke halaman terima kasih dengan parameter URL
+            window.location.search = urlParams.toString();
+        });
+
+        // Jika ada query string (parameter URL), tampilkan halaman terima kasih
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('produk')) {
+            // Sembunyikan halaman checkout dan tampilkan halaman thank you
+            document.querySelector('.checkout').style.display = 'none';
+            document.querySelector('.thank-you').style.display = 'block';
+
+            // Ambil dan tampilkan data dari query string
+            document.getElementById('produk-name-2').textContent = urlParams.get('produk');
+            document.getElementById('produk-harga-2').textContent = "Rp " + urlParams.get('harga');
+            document.getElementById('user-name').textContent = urlParams.get('name');
+            document.getElementById('user-address').textContent = urlParams.get('address');
+            document.getElementById('user-phone').textContent = urlParams.get('phone');
+        }
+    </script>
+
+</body>
+</html>
