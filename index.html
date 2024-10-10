@@ -349,7 +349,7 @@
                 <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
             </a>
             <div class="search-container">
-                <input type="text" class="search-input" id="searchInput" placeholder="Cari produk..." oninput="filterProducts()" onkeypress="if(event.key === 'Enter'){filterProducts()}">
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari produk..." onkeydown="handleSearch(event)">
             </div>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -372,21 +372,20 @@
 
     <!-- Kategori Section -->
     <section class="kategori">
-    <h2>Kategori Produk</h2>
-    <div class="kategori-slider">
-        <button class="carousel-button left" onclick="moveSlider(-1)">&#10094;</button>
-        <div class="kategori-list" id="kategoriList">
-            <a href="kamera_dslr.html" class="kategori-item">Kamera DSLR</a>
-            <a href="kamera_mirrorless.html" class="kategori-item">Kamera Mirrorless</a>
-            <a href="kamera_action.html" class="kategori-item">Kamera Action</a>
-            <a href="aksesoris_kamera.html" class="kategori-item">Aksesoris Kamera</a>
-            <a href="kamera_pocket.html" class="kategori-item">Kamera Pocket</a>
-            <a href="kamera_digital.html" class="kategori-item">Kamera Digital</a>
+        <h2>Kategori Produk</h2>
+        <div class="kategori-slider">
+            <button class="carousel-button left" onclick="moveSlider(-1)">&#10094;</button>
+            <div class="kategori-list" id="kategoriList">
+                <a href="kamera_dslr.html" class="kategori-item">Kamera DSLR</a>
+                <a href="kamera_mirrorless.html" class="kategori-item">Kamera Mirrorless</a>
+                <a href="kamera_action.html" class="kategori-item">Kamera Action</a>
+                <a href="aksesoris_kamera.html" class="kategori-item">Aksesoris Kamera</a>
+                <a href="kamera_pocket.html" class="kategori-item">Kamera Pocket</a>
+                <a href="kamera_digital.html" class="kategori-item">Kamera Digital</a>
+            </div>
+            <button class="carousel-button right" onclick="moveSlider(1)">&#10095;</button>
         </div>
-        <button class="carousel-button right" onclick="moveSlider(1)">&#10095;</button>
-    </div>
     </section>
-
 
     <!-- Produk Section -->
     <section id="produk" class="produk">
@@ -445,18 +444,30 @@
             kategoriList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
 
+        // Enhanced search functionality
+        document.getElementById("searchInput").addEventListener("input", filterProducts);
+
         function filterProducts() {
-            var searchInput = document.getElementById("searchInput").value.toLowerCase();
-            var produkItems = document.querySelectorAll(".produk-item");
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const produkItems = document.querySelectorAll(".produk-item");
             
-            produkItems.forEach(function(item) {
-                var name = item.getAttribute("data-name").toLowerCase();
+            produkItems.forEach(item => {
+                const name = item.getAttribute("data-name").toLowerCase();
                 if (name.includes(searchInput)) {
                     item.style.display = "block"; // Show product
                 } else {
                     item.style.display = "none"; // Hide product
                 }
             });
+        }
+        
+                function handleSearch(event) {
+            if (event.key === 'Enter') {
+                const searchInput = document.getElementById("searchInput").value.trim();
+                if (searchInput) {
+                    window.location.href = `produk.html?search=${encodeURIComponent(searchInput)}`;
+                }
+            }
         }
     </script>
 

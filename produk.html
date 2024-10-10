@@ -79,7 +79,7 @@
 
         .produk-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 20px;
         }
@@ -91,6 +91,7 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             padding: 20px;
+            text-align: left;
         }
 
         .produk-item:hover {
@@ -100,32 +101,33 @@
 
         .produk-item img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
         }
 
         .produk-item h3 {
-            font-size: 1.8rem;
-            margin-top: 20px;
+            font-size: 1.6rem;
+            margin-top: 15px;
         }
 
         .produk-item p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ccc;
             margin: 10px 0;
         }
 
         .btn {
-            padding: 10px 30px;
+            padding: 10px 20px;
             background-color: #ff6600;
             color: #fff;
             font-weight: 600;
             border-radius: 20px;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
             transition: background-color 0.3s ease;
             letter-spacing: 1px;
+            display: inline-block;
         }
 
         .btn:hover {
@@ -161,18 +163,14 @@
             color: #ff6600;
         }
 
-        /* Responsif */
+        /* Responsive */
         @media (max-width: 768px) {
-            .produk-grid {
-                grid-template-columns: 1fr;
-            }
-
             .produk h2 {
                 font-size: 2.5rem;
             }
 
             .produk-item img {
-                height: 250px;
+                height: 180px;
             }
         }
     </style>
@@ -184,7 +182,7 @@
         <nav>
             <a href="index.html" class="logo">
                 <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
-            </div>
+            </a>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="produk.html">Produk</a></li>
@@ -196,54 +194,128 @@
     </header>
 
     <!-- Produk Section -->
-    <section class="produk">
-        <h2>Daftar Produk Kami</h2>
-        <div class="produk-grid">
-            <!-- Produk 1 -->
-            <div class="produk-item">
+    <section id="produk" class="produk">
+        <h2>Produk Terbaru</h2>
+        <div class="produk-grid" id="produkGrid">
+            <!-- 20 Produk -->
+            <div class="produk-item" data-name="Kamera DSLR Galaxy X1000">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+1" alt="Kamera 1">
                 <h3>Kamera DSLR Galaxy X1000</h3>
                 <p>Fitur profesional, desain ergonomis, cocok untuk pengambilan gambar yang tajam.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
-
-            <!-- Produk 2 -->
-            <div class="produk-item">
+            <div class="produk-item" data-name="Kamera Mirrorless Galaxy M500">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+2" alt="Kamera 2">
                 <h3>Kamera Mirrorless Galaxy M500</h3>
                 <p>Ringan, portabel, dan mampu memberikan kualitas gambar luar biasa dalam setiap perjalanan.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
-
-            <!-- Produk 3 -->
-            <div class="produk-item">
+            <div class="produk-item" data-name="Kamera Action Galaxy XPro">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+3" alt="Kamera 3">
                 <h3>Kamera Action Galaxy XPro</h3>
                 <p>Kamera tahan banting dengan hasil gambar yang memukau dalam setiap petualangan.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
-
-            <!-- Produk 4 -->
-            <div class="produk-item">
+            <div class="produk-item" data-name="Kamera Vintage Galaxy V500">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+4" alt="Kamera 4">
-                <h3>Kamera Mirrorless Galaxy M600</h3>
-                <p>Desain kompak dengan kinerja tinggi, cocok untuk para fotografer profesional.</p>
+                <h3>Kamera Vintage Galaxy V500</h3>
+                <p>Kamera klasik dengan sentuhan modern dan hasil yang menakjubkan.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
-
-            <!-- Produk 5 -->
-            <div class="produk-item">
+            <div class="produk-item" data-name="Kamera 360 Galaxy C100">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+5" alt="Kamera 5">
-                <h3>Kamera Action Galaxy Z500</h3>
-                <p>Kamera canggih dengan kualitas video 4K yang sempurna untuk kegiatan outdoor.</p>
+                <h3>Kamera 360 Galaxy C100</h3>
+                <p>Abadikan momen dari segala sudut dengan teknologi 360 derajat.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
-
-            <!-- Produk 6 -->
-            <div class="produk-item">
+            <div class="produk-item" data-name="Kamera DSLR Galaxy X2000">
                 <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+6" alt="Kamera 6">
-                <h3>Kamera DSLR Galaxy S2000</h3>
-                <p>Kamera DSLR dengan fitur canggih, ideal untuk pengambilan gambar profesional.</p>
+                <h3>Kamera DSLR Galaxy X2000</h3>
+                <p>Kamera DSLR canggih untuk fotografer profesional.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Mirrorless Galaxy M600">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+7" alt="Kamera 7">
+                <h3>Kamera Mirrorless Galaxy M600</h3>
+                <p>Kualitas gambar terbaik dalam desain yang kompak.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Action Galaxy XPro 2">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+8" alt="Kamera 8">
+                <h3>Kamera Action Galaxy XPro 2</h3>
+                <p>Kamera action yang tahan air dan debu untuk petualangan ekstrem.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Digital Galaxy D300">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+9" alt="Kamera 9">
+                <h3>Kamera Digital Galaxy D300</h3>
+                <p>Kamera digital dengan fitur-fitur mutakhir untuk semua kalangan.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Polaroid Galaxy P100">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+10" alt="Kamera 10">
+                <h3>Kamera Polaroid Galaxy P100</h3>
+                <p>Kamera polaroid untuk cetak foto instan dengan gaya vintage.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Superzoom Galaxy Z300">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+11" alt="Kamera 11">
+                <h3>Kamera Superzoom Galaxy Z300</h3>
+                <p>Kamera dengan zoom tinggi untuk menangkap detail dari jarak jauh.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Kompak Galaxy C500">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+12" alt="Kamera 12">
+                <h3>Kamera Kompak Galaxy C500</h3>
+                <p>Kamera kompak yang mudah dibawa dan digunakan untuk sehari-hari.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Mirrorless Galaxy M700">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+13" alt="Kamera 13">
+                <h3>Kamera Mirrorless Galaxy M700</h3>
+                <p>Kamera mirrorless dengan performa luar biasa dalam ukuran ringkas.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Video Galaxy V200">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+14" alt="Kamera 14">
+                <h3>Kamera Video Galaxy V200</h3>
+                <p>Kamera video untuk merekam momen berharga dengan kualitas tinggi.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Drone Galaxy D600">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+15" alt="Kamera 15">
+                <h3>Kamera Drone Galaxy D600</h3>
+                <p>Kamera drone untuk mengambil gambar dari udara dengan hasil yang menakjubkan.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Instant Galaxy I200">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+16" alt="Kamera 16">
+                <h3>Kamera Instant Galaxy I200</h3>
+                <p>Kamera instan dengan kemampuan cetak foto langsung.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Film Galaxy F100">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+17" alt="Kamera 17">
+                <h3>Kamera Film Galaxy F100</h3>
+                <p>Kamera film klasik untuk penggemar fotografi tradisional.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera 4K Galaxy K800">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+18" alt="Kamera 18">
+                <h3>Kamera 4K Galaxy K800</h3>
+                <p>Kamera 4K untuk video dan foto dengan resolusi tinggi.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera SLR Galaxy S2000">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+19" alt="Kamera 19">
+                <h3>Kamera SLR Galaxy S2000</h3>
+                <p>Kamera SLR profesional untuk fotografer yang serius.</p>
+                <a href="produkco.html" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-item" data-name="Kamera Compact Galaxy C700">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+20" alt="Kamera 20">
+                <h3>Kamera Compact Galaxy C700</h3>
+                <p>Kamera compact yang ideal untuk perjalanan dan penggunaan sehari-hari.</p>
                 <a href="produkco.html" class="btn">Beli Sekarang</a>
             </div>
         </div>
@@ -258,6 +330,23 @@
             <a href="https://twitter.com">Twitter</a>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const searchQuery = params.get('search');
+
+            if (searchQuery) {
+                const produkItems = document.querySelectorAll(".produk-item");
+                produkItems.forEach(item => {
+                    const name = item.getAttribute("data-name").toLowerCase();
+                    if (!name.includes(searchQuery.toLowerCase())) {
+                        item.style.display = "none"; // Hide product
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
