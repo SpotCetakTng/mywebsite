@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kamera Pocket - Galaxy Camera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Same styles as previous pages */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #0b0d0f; color: #fff; }
+        a { text-decoration: none; color: inherit; }
+        header { position: fixed; width: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; padding: 15px 0; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .logo img { height: 50px; }
+        .menu { display: flex; gap: 30px; }
+        .menu li { font-size: 18px; font-weight: 600; }
+        .menu a { color: #fff; transition: color 0.3s ease; }
+        .menu a:hover { color: #ff6600; }
+        .produk { padding: 100px 20px; text-align: center; margin-top: 80px; }
+        .produk h2 { font-size: 3rem; margin-bottom: 40px; }
+        .produk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 20px; }
+        .produk-item { background-color: #1a1a1a; border-radius: 8px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 20px; }
+        .produk-item:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+        .produk-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
+        .produk-item h3 { font-size: 1.8rem; margin-top: 20px; }
+        .produk-item p { font-size: 1.1rem; color: #ccc; margin: 10px 0; }
+        footer { background-color: #0b0d0f; padding: 40px 20px; text-align: center; }
+        footer p { margin: 0; font-size: 1rem; }
+        footer .socials { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        footer .socials a { color: #fff; font-size: 20px; transition: color 0.3s ease; }
+        footer .socials a:hover { color: #ff6600; }
+        @media (max-width: 768px) { .produk-grid { grid-template-columns: 1fr; } .produk h2 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="home.html" class="logo">
+            <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
+        </a>
+        <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="kamera_pocket.html">Kamera Pocket</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="produk">
+    <h2>Kamera Pocket</h2>
+    <div class="produk-grid">
+        <div class="produk-item" data-name="Kamera Pocket Galaxy P100">
+            <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+Pocket+1" alt="Kamera Pocket 1">
+            <h3>Kamera Pocket Galaxy P100</h3>
+            <p>Desain ringkas, mudah dibawa dan tetap menghasilkan gambar berkualitas.</p>
+        </div>
+        <div class="produk-item" data-name="Kamera Pocket Galaxy P200">
+            <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+Pocket+2" alt="Kamera Pocket 2">
+            <h3>Kamera Pocket Galaxy P200</h3>
+            <p>Fitur modern dengan kualitas video yang memukau dalam ukuran kecil.</p>
+        </div>
+        <div class="produk-item" data-name="Kamera Pocket Galaxy P300">
+            <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+Pocket+3" alt="Kamera Pocket 3">
+            <h3>Kamera Pocket Galaxy P300</h3>
+            <p>Sempurna untuk fotografi sehari-hari dan rekaman perjalanan.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Galaxy Camera | All Rights Reserved</p>
+    <div class="socials">
+        <a href="https://facebook.com">Facebook</a>
+        <a href="https://instagram.com">Instagram</a>
+        <a href="https://twitter.com">Twitter</a>
+    </div>
+</footer>
+
+</body>
+</html>

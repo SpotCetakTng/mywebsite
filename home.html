@@ -66,7 +66,7 @@
             color: #ff6600;
         }
 
-        /* Search Container (Positioning Search Bar at the Center) */
+        /* Search Container */
         .search-container {
             display: flex;
             justify-content: center;
@@ -128,6 +128,71 @@
 
         .cta-btn:hover {
             background-color: #e55a00;
+        }
+
+        /* Kategori Section */
+        .kategori {
+            padding: 100px 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+
+        .kategori h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .kategori-slider {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            justify-content: center; /* Center the items */
+        }
+
+        .kategori-list {
+            display: flex;
+            transition: transform 0.3s ease;
+            gap: 20px; /* Space between items */
+        }
+
+        .kategori-item {
+            flex: 1; /* Make all items take equal space */
+            max-width: 200px; /* Set a max width */
+            height: 200px; /* Fixed height for symmetry */
+            background-color: #0b0d0f;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .kategori-item:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
         }
 
         /* Produk Section */
@@ -268,6 +333,10 @@
             .search-input {
                 width: 200px;
             }
+
+            .kategori-item {
+                max-width: 150px; /* Adjust for smaller screens */
+            }
         }
     </style>
 </head>
@@ -279,11 +348,9 @@
             <a href="home.html" class="logo">
                 <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
             </a>
-         <!-- Search Bar in the middle, beside the logo -->
             <div class="search-container">
                 <input type="text" class="search-input" id="searchInput" placeholder="Cari produk..." oninput="filterProducts()" onkeypress="if(event.key === 'Enter'){filterProducts()}">
             </div>
-            <!-- Menu (no changes) -->
             <ul class="menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="produk.html">Produk</a></li>
@@ -299,9 +366,27 @@
         <div class="hero-content">
             <h1>Abadikan Setiap Momen</h1>
             <p>Galaxy Camera hadir dengan teknologi terbaru untuk menangkap setiap detil hidup dengan sempurna.</p>
-            <a href="#produk" class="cta-btn">Lihat Produk</a>
+            <a href="produk.html" class="cta-btn">Lihat Produk</a>
         </div>
     </section>
+
+    <!-- Kategori Section -->
+    <section class="kategori">
+    <h2>Kategori Produk</h2>
+    <div class="kategori-slider">
+        <button class="carousel-button left" onclick="moveSlider(-1)">&#10094;</button>
+        <div class="kategori-list" id="kategoriList">
+            <a href="kamera_dslr.html" class="kategori-item">Kamera DSLR</a>
+            <a href="kamera_mirrorless.html" class="kategori-item">Kamera Mirrorless</a>
+            <a href="kamera_action.html" class="kategori-item">Kamera Action</a>
+            <a href="aksesoris_kamera.html" class="kategori-item">Aksesoris Kamera</a>
+            <a href="kamera_pocket.html" class="kategori-item">Kamera Pocket</a>
+            <a href="kamera_digital.html" class="kategori-item">Kamera Digital</a>
+        </div>
+        <button class="carousel-button right" onclick="moveSlider(1)">&#10095;</button>
+    </div>
+    </section>
+
 
     <!-- Produk Section -->
     <section id="produk" class="produk">
@@ -343,6 +428,23 @@
     </footer>
 
     <script>
+        let currentIndex = 0;
+
+        function moveSlider(direction) {
+            const kategoriList = document.getElementById("kategoriList");
+            const totalItems = kategoriList.children.length;
+            const itemWidth = 240; // Adjust based on width and margin of kategori-item
+
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            } else if (currentIndex > totalItems - 3) { // Allow 3 visible items
+                currentIndex = totalItems - 3;
+            }
+
+            kategoriList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
         function filterProducts() {
             var searchInput = document.getElementById("searchInput").value.toLowerCase();
             var produkItems = document.querySelectorAll(".produk-item");
