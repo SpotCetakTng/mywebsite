@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galaxy Camera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0d0f;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu li {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menu a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6600;
+        }
+
+        /* Search Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .search-input {
+            padding: 10px 30px 10px 15px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            width: 250px;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://png.pngtree.com/thumb_back/fh260/background/20230617/pngtree-lakescape-landscape-nature-scenery-hd-image_2950137.jpg') center/cover no-repeat;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background-color: #ff6600;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            background-color: #e55a00;
+        }
+
+        /* Kategori Section */
+        .kategori {
+            padding: 100px 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+
+        .kategori h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .kategori-slider {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            justify-content: center; /* Center the items */
+        }
+
+        .kategori-list {
+            display: flex;
+            transition: transform 0.3s ease;
+            gap: 20px; /* Space between items */
+        }
+
+        .kategori-item {
+            flex: 1; /* Make all items take equal space */
+            max-width: 200px; /* Set a max width */
+            height: 200px; /* Fixed height for symmetry */
+            background-color: #0b0d0f;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .kategori-item:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        /* Produk Section */
+        .produk {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .produk h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .produk-item {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+        }
+
+        .produk-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .produk-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .produk-item h3 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+
+        .produk-item p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 10px 30px;
+            background-color: #ff6600;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #e55a00;
+        }
+
+        /* Tentang Kami Section */
+        .tentang-kami {
+            padding: 80px 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+
+        .tentang-kami h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .tentang-kami p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0d0f;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        footer .socials a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        footer .socials a:hover {
+            color: #ff6600;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .produk-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .cta-btn {
+                font-size: 16px;
+            }
+
+            .produk h2 {
+                font-size: 2.5rem;
+            }
+
+            .search-input {
+                width: 200px;
+            }
+
+            .kategori-item {
+                max-width: 150px; /* Adjust for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="file:///D:/Irwan/Aset/Logo/Logo%20Galaxy/Galaxy%20Camera%20(Putih).png" alt="Galaxy Camera">
+            </a>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari produk..." oninput="filterProducts()" onkeypress="if(event.key === 'Enter'){filterProducts()}">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Abadikan Setiap Momen</h1>
+            <p>Galaxy Camera hadir dengan teknologi terbaru untuk menangkap setiap detil hidup dengan sempurna.</p>
+            <a href="produk.html" class="cta-btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <!-- Kategori Section -->
+    <section class="kategori">
+    <h2>Kategori Produk</h2>
+    <div class="kategori-slider">
+        <button class="carousel-button left" onclick="moveSlider(-1)">&#10094;</button>
+        <div class="kategori-list" id="kategoriList">
+            <a href="kamera_dslr.html" class="kategori-item">Kamera DSLR</a>
+            <a href="kamera_mirrorless.html" class="kategori-item">Kamera Mirrorless</a>
+            <a href="kamera_action.html" class="kategori-item">Kamera Action</a>
+            <a href="aksesoris_kamera.html" class="kategori-item">Aksesoris Kamera</a>
+            <a href="kamera_pocket.html" class="kategori-item">Kamera Pocket</a>
+            <a href="kamera_digital.html" class="kategori-item">Kamera Digital</a>
+        </div>
+        <button class="carousel-button right" onclick="moveSlider(1)">&#10095;</button>
+    </div>
+    </section>
+
+
+    <!-- Produk Section -->
+    <section id="produk" class="produk">
+        <h2>Produk Terbaru</h2>
+        <div class="produk-grid" id="produkGrid">
+            <div class="produk-item" data-name="Kamera DSLR Galaxy X1000">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+1" alt="Kamera 1">
+                <h3>Kamera DSLR Galaxy X1000</h3>
+                <p>Fitur profesional, desain ergonomis, cocok untuk pengambilan gambar yang tajam.</p>
+            </div>
+            <div class="produk-item" data-name="Kamera Mirrorless Galaxy M500">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+2" alt="Kamera 2">
+                <h3>Kamera Mirrorless Galaxy M500</h3>
+                <p>Ringan, portabel, dan mampu memberikan kualitas gambar luar biasa dalam setiap perjalanan.</p>
+            </div>
+            <div class="produk-item" data-name="Kamera Action Galaxy XPro">
+                <img src="https://via.placeholder.com/400x300/ff6600/fff?text=Kamera+3" alt="Kamera 3">
+                <h3>Kamera Action Galaxy XPro</h3>
+                <p>Kamera tahan banting dengan hasil gambar yang memukau dalam setiap petualangan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang-kami" class="tentang-kami">
+        <h2>Tentang Kami</h2>
+        <p>Galaxy Camera adalah perusahaan yang berfokus pada inovasi teknologi kamera untuk memenuhi kebutuhan pengambilan gambar berkualitas tinggi. Kami hadir dengan berbagai produk kamera terbaru yang dapat diandalkan untuk berbagai keperluan, dari fotografi profesional hingga petualangan ekstrem.</p>
+        <p>Visi kami adalah untuk memberikan pengalaman fotografi terbaik dengan teknologi yang mudah diakses oleh semua kalangan.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Galaxy Camera | All Rights Reserved</p>
+        <div class="socials">
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+            <a href="https://twitter.com">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlider(direction) {
+            const kategoriList = document.getElementById("kategoriList");
+            const totalItems = kategoriList.children.length;
+            const itemWidth = 240; // Adjust based on width and margin of kategori-item
+
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            } else if (currentIndex > totalItems - 3) { // Allow 3 visible items
+                currentIndex = totalItems - 3;
+            }
+
+            kategoriList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+        function filterProducts() {
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+            var produkItems = document.querySelectorAll(".produk-item");
+            
+            produkItems.forEach(function(item) {
+                var name = item.getAttribute("data-name").toLowerCase();
+                if (name.includes(searchInput)) {
+                    item.style.display = "block"; // Show product
+                } else {
+                    item.style.display = "none"; // Hide product
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
